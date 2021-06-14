@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - features/*
+  pull_request:
+    branches:
+      - hotfix/*
+      - master
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+
+    steps:
+      - name: Checkout repo
+        id: checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        id: node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup
+        id: setup
+        run: |
+          git fetch
+          git checkout master
+          git checkout ${{ github.event.pull_request.head.sha }}
+          yarn
+        if: ${{ steps.checkout.outcome == 'success' && steps.node.outcome == 'success' }}
+
+      - name: Execute linting
+        run: yarn nx affected --target=lint --parallel
+        if: ${{ steps.setup.outcome == 'success' }}
+
+      - name: Execute tests
+        run: yarn nx affected --target=test --parallel
+        if: ${{ steps.setup.outcome == 'success' }}
+
+      - name: Build apps
+        run: yarn nx affected --target=build --parallel
+        if: ${{ steps.setup.outcome == 'success' }}
