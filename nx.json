@@ -25,6 +25,9 @@
     "webapp-e2e": {
       "tags": [],
       "implicitDependencies": ["webapp"]
+    },
+    "back-end-service": {
+      "tags": []
     }
   }
 }
