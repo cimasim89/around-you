@@ -1,0 +1,11 @@
+{
+  "name": "@ayou/prettier-config",
+  "version": "1.0.0",
+  "description": "The single source of truth for the Prettier config.",
+  "main": ".prettierrc.js",
+  "author": "Simone Cimarelli",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.3.4"
+  }
+}

@@ -31,20 +31,15 @@ jobs:
       - name: Setup
         id: setup
         run: |
-          git fetch
-          git checkout master
-          git checkout ${{ github.event.pull_request.head.sha }}
           yarn
+          yarn lerna run build:tools --parallel
         if: ${{ steps.checkout.outcome == 'success' && steps.node.outcome == 'success' }}
 
       - name: Execute linting
-        run: yarn nx affected --target=lint --parallel
+        run: yarn lerna run lint --parallel
         if: ${{ steps.setup.outcome == 'success' }}
 
       - name: Execute tests
-        run: yarn nx affected --target=test --parallel
+        run: yarn lerna run test --parallel
         if: ${{ steps.setup.outcome == 'success' }}
 
-      - name: Build apps
-        run: yarn nx affected --target=build --parallel
-        if: ${{ steps.setup.outcome == 'success' }}
