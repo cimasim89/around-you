@@ -4,5 +4,8 @@
   "description": "The single source of truth for the Prettier config.",
   "main": ".prettierrc.js",
   "author": "Simone Cimarelli",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.3.4"
+  }
 }
