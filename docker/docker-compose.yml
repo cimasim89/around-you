@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  sql:
+    container_name: around_you_sql
+    image: library/postgres:13
+    restart: unless-stopped
+    networks:
+      - around-you-network
+    environment:
+      - POSTGRES_PASSWORD=around_you
+      - POSTGRES_USER=around_you
+    ports:
+      - '5432:5432'
+
+  platform:
+    container_name: around_you_platform
+    image: library/node:14.17.1
+    command: yarn start:debug
+    working_dir: /srv/app
+    networks:
+      - around-you-network
+    depends_on:
+      - sql
+    volumes:
+      - ../applications/back-end-service/:/srv/app:consistent
+    ports:
+      - '3000:3000'
+      - '9229:9229'
+
+  nginx:
+    container_name: around_you_nginx
+    image: nginx:1.17.10
+    restart: unless-stopped
+    depends_on:
+      - platform
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - around-you-network
+    volumes:
+      - ./certs:/etc/ssl/certs
+      - ./dhparam:/etc/ssl/dhparam
+      - ./configs/nginx:/etc/nginx/conf.d:ro
+
+networks:
+  around-you-network:
+    driver: bridge

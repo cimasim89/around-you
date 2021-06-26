@@ -42,3 +42,6 @@ Thumbs.db
 
 lerna-debug.*
 yarn-error.*
+
+/docker/**/*.pem
+*-production.yml
