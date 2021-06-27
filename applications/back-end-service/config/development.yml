@@ -1,0 +1,9 @@
+db:
+  default:
+    type: 'postgres'
+    host: 'sql'
+    port: 5432
+    username: 'around_you'
+    password: 'around_you'
+    database: 'around_you'
+    synchronize: false
