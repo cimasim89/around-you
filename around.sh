@@ -64,42 +64,42 @@ do
     ;;
 
     migration:create)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:create -n $2"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:create -n $2"
       exit
     ;;
 
     migration:generate)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:generate -n $2"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:generate -n $2"
       exit
     ;;
 
     migration:run)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:run"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:run"
       exit
     ;;
 
     migration:run-on)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:run -c $2"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:run -c $2"
       exit
     ;;
 
     migration:revert)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:revert"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:revert"
       exit
     ;;
 
     migration:revert-on)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:revert -c $2"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:revert -c $2"
       exit
     ;;
 
     migration:show)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:show"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:show"
       exit
     ;;
 
     migration:show-on)
-      docker exec -it around_you_platform sh -c "yarn workspace back-end-service typeorm:migration:show -c $2"
+      docker exec -it around_you_platform sh -c "yarn workspace @ayou/back-end-service typeorm:migration:show -c $2"
       exit
     ;;
 
