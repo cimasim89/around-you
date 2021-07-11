@@ -7,3 +7,4 @@ db:
     password: 'around_you'
     database: 'around_you'
     synchronize: false
+
