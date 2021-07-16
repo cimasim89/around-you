@@ -7,7 +7,7 @@ import { CreateAreaDTO } from './dto/create-area.dto'
 export class AreaService {
   constructor(private areaRepository: AreaRepository) {}
 
-  async getAreas(uuid: string): Promise<Area> {
+  async getArea(uuid: string): Promise<Area> {
     const area = await this.areaRepository.findOne({ uuid })
 
     if (!area) {
@@ -22,5 +22,9 @@ export class AreaService {
       parentAreaUuid: createAreaDTO.parentAreaUuid,
       name: createAreaDTO.name,
     })
+  }
+
+  getChildren(areaUuid: string): Promise<Area[]> {
+    return this.areaRepository.find({ parentAreaUuid: areaUuid })
   }
 }

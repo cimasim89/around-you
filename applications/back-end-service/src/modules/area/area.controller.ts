@@ -9,7 +9,7 @@ export class AreaController {
 
   @Get('/:areaUuid')
   getArea(@Param('areaUuid') areaUuid: string): Promise<Area> {
-    return this.areaService.getAreas(areaUuid)
+    return this.areaService.getArea(areaUuid)
   }
 
   @Post()

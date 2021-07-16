@@ -10,7 +10,7 @@ export class DeviceMovements {
   @Column()
   dateTime: Date
 
-  @Column()
+  @Column('character varying')
   deviceUuid: string
 
   @Column()

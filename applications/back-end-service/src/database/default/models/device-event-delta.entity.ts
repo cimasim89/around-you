@@ -1,5 +1,5 @@
-import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm'
-import {Device} from "./device.entity";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Device } from './device.entity'
 
 @Entity()
 export class DeviceEventDelta {
@@ -8,7 +8,7 @@ export class DeviceEventDelta {
   })
   dateTime!: Date
 
-  @Column('string')
+  @Column('character varying')
   deviceUuid!: string
 
   @Column('int')
