@@ -16,7 +16,7 @@ services:
   platform:
     container_name: around_you_platform
     image: library/node:14.17.1
-    command: yarn workspace back-end-service start:debug
+    command: yarn workspace @ayou/back-end-service start:debug
     working_dir: /srv/app
     networks:
       - around-you-network

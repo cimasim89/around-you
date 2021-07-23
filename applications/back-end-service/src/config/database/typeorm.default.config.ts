@@ -26,7 +26,7 @@ export const typeOrmDefaultDatabaseConfig: TypeOrmModuleOptions = {
   database: process.env.DEFAULT_DB_DATABASE || defaultDatabaseConfig.database,
   synchronize: defaultDatabaseConfig.synchronize || false,
 
-  entities: [path.join(__dirname, '../../database/default/**/*.entity.ts')],
+  entities: [path.join(__dirname, '../../database/default/**/*.entity{.ts,.js}')],
   migrations: [path.join(__dirname, '../../database/default/migrations/*.ts')],
   migrationsTableName: 'migration',
 
