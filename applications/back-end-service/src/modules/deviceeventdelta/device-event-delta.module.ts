@@ -8,5 +8,6 @@ import { DeviceEventDeltaService } from './device-event-delta.service'
   imports: [TypeOrmModule.forFeature([DeviceEventDeltaRepository])],
   controllers: [DeviceEventDeltaController],
   providers: [DeviceEventDeltaService],
+  exports: [DeviceEventDeltaService],
 })
 export class DeviceEventDeltaModule {}

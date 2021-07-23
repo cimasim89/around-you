@@ -8,5 +8,6 @@ import { ActivityService } from './activity.service'
   imports: [TypeOrmModule.forFeature([ActivityRepository])],
   controllers: [ActivityController],
   providers: [ActivityService],
+  exports: [ActivityService],
 })
 export class ActivityModule {}

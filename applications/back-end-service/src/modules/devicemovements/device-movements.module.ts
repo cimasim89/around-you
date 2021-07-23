@@ -8,5 +8,6 @@ import { DeviceMovementsService } from './device-movements.service'
   imports: [TypeOrmModule.forFeature([DeviceMovementsRepository])],
   controllers: [DeviceMovementsController],
   providers: [DeviceMovementsService],
+  exports: [DeviceMovementsService],
 })
 export class DeviceMovementsModule {}
